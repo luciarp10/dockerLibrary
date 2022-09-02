@@ -3,14 +3,13 @@ const body_parser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
 const utils = require('./utils');
-
 // fn to create express server
 const create = async () => {
 
     // server
     const app = express();
     app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
-    app.use(body_parser.urlencoded({extended:true}));
+    app.use(express.json())
 
     // Log request
     app.use(utils.appLogger);
@@ -23,7 +22,7 @@ const create = async () => {
 
     app.post('/api/register', (req, res) => {
         console.log(req.body)
-        res.json({name: "Funciono", surname: req.body.surname})
+        res.json({name: req.body.name, surname: req.body.surname})
         res.end()
     })
 
