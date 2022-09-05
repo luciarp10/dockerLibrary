@@ -15,9 +15,8 @@ const create = async () => {
     app.use(utils.appLogger);
 
     // root route - serve static file
-    app.get('/api/hello', (req, res) => {
-        res.json({hello: 'goodbye'});
-        res.end();
+    app.get('/hello', (req, res) => {
+        return res.sendFile(path.join(__dirname, '../public/hello.html'));
     });
 
     app.post('/api/register', (req, res) => {
