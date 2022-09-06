@@ -50,13 +50,5 @@
 				"enableDebugging": true
 			}
 		},
-		{
-			"type": "docker-run",
-			"label": "docker-run: remove",
-			"dependsOn":[
-				"docker-build"
-			],
-
-		}
 	]
 }

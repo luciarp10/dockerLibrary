@@ -1,20 +1,6 @@
----
-page_type: sample
-languages:
-- javascript
-- nodejs
-name: "JavaScript end-to-end Express.js server"
-description: "This project is used instead of the previous express-generator."
-products:
-- azure
-- vs-code
----
+This repo has been created in order to do a step by step example to deploy an application in Kubernetes by using a Docker image. 
 
-# JavaScript end-to-end client file upload to Azure Storage Blobs
-
-This is a basic Express.js server used for JS Dev Experience documentation, in place of the previously used express generator. 
-
-1. Clone repo.
+To use de application in your own PC execute: 
 
 1. Install dependencies: 
 
@@ -22,8 +8,26 @@ This is a basic Express.js server used for JS Dev Experience documentation, in p
     npm install
     ```
 
-1. Start project: 
+2. Start project: 
 
     ```bash
     npm start
     ```
+
+If you want to create a Docker image with this application you have to use the file ```tasks.json``` and execute the task: ```docker-build```.
+
+
+Now we are going to push the image to DockerHub:
+
+1. Create a DockerHub account to push your image. Then, login: 
+    ```bash 
+    docker login 
+    ```
+2. Create the image tag: 
+    ```bash 
+    docker tag learningkubernetes.example.io:1.0 username/learningkubernetes.example.io:1.0
+    ```
+3. Push the image: 
+    ```
+    docker push username/learningkubernetes.example.io:1.0
+    ````
