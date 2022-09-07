@@ -9,8 +9,9 @@ const os  = require('os');
 const { stringify } = require('querystring');
 
 const WORKDIR = env.PWD;
-const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /mnt/data/books
+const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
 const version = env.VERSION ? env.VERSION : "1.0";
+const secret = env.SECRET;
 
 // fn to create express server
 const create = async () => {
@@ -75,8 +76,6 @@ const create = async () => {
             res.end();
         })  
     })
-
-
 
     // Catch errors
     app.use(utils.logErrors);

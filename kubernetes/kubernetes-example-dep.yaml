@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
         - name: kubernetes-example
-          image: luciarp10/learningkubernetes.example.io:1.0
+          image: nmolnar/learningkubernetes.example.io:1.0
           env:
             - name: VERSION
               valueFrom:
@@ -28,8 +28,14 @@ spec:
                 configMapKeyRef:
                   name: kubernetes-example
                   key: pv_path
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: kubernetes-example-pv
+              mountPath: /usr/src/data
           ports: 
           - containerPort: 3000
+#      securityContext:
+#        fsGroup: 1000
       volumes: 
       - name: kubernetes-example-pv
         persistentVolumeClaim: 

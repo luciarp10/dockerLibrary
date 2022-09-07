@@ -5,4 +5,4 @@ metadata:
 data:
   # property-like keys
   version: "1.1"
-  pv_path: "/mnt/data"
+  pv_path: "/usr/src/data"
