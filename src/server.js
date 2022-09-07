@@ -8,9 +8,8 @@ const { env } = require('process');
 const os  = require('os');
 const { stringify } = require('querystring');
 
-const WORKDIR = env.WORKDIR;
-const booksDir = WORKDIR + "/books/";
-
+const WORKDIR = env.PWD;
+const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /mnt/data/books
 const version = env.VERSION ? env.VERSION : "1.0";
 
 // fn to create express server
@@ -39,7 +38,11 @@ const create = async () => {
         var year = datems.getFullYear();
         
         var date = day +"/"+month+"/"+year
-        var stream = fs.createWriteStream(booksDir+req.body.title+".txt");
+        var book_path = booksDir+req.body.title+".txt";
+
+        utils.createDirIfNotExist(booksDir, fs);
+
+        var stream = fs.createWriteStream(book_path);
 
         stream.once('open', (fd) => {
             stream.write('{\n"Title": "' + req.body.title + '",\n');
@@ -57,6 +60,7 @@ const create = async () => {
 
     app.get("/books", (req, res) => {
         var books = []
+        utils.createDirIfNotExist(booksDir, fs);
         fs.readdir(booksDir, function(err, files){
             if (err){
                 res.status = 404;

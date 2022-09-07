@@ -30,4 +30,4 @@ Now we are going to push the image to DockerHub:
 3. Push the image: 
     ```
     docker push username/learningkubernetes.example.io:1.0
-    ````
+    ```

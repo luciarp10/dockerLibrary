@@ -50,6 +50,12 @@ const errorHandler = (err, req, res) => {
   res.render('error', { error: err });
 };
 
+const createDirIfNotExist = (path,fs) => { 
+  if (!fs.existsSync(path)){
+    fs.mkdirSync(path, {recursive: true});
+  }
+};
+
 module.exports = {
   timeStamp,
   binaryParser,
@@ -59,4 +65,5 @@ module.exports = {
   clientError500Handler,
   clientError404Handler,
   errorHandler,
+  createDirIfNotExist,
 };
