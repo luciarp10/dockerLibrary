@@ -1,6 +1,6 @@
 This repo has been created in order to do a step by step example to deploy an application in Kubernetes by using a Docker image. 
 
-To use de application in your own PC execute: 
+To use the application in your own PC execute: 
 
 1. Install dependencies: 
 

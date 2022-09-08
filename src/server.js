@@ -11,7 +11,7 @@ const { stringify } = require('querystring');
 const WORKDIR = env.PWD;
 const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
 const version = env.VERSION ? env.VERSION : "1.0";
-const secret = env.SECRET;
+const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
 
 // fn to create express server
 const create = async () => {
@@ -27,7 +27,7 @@ const create = async () => {
     // root route - serve static file
     app.get('/', (req, res) => {
         res.json({nodeName: os.hostname()
-            , version: version});
+            , version: version, credentials: secret});
         res.end();  
     });
 
