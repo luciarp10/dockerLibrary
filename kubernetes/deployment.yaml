@@ -41,15 +41,10 @@ spec:
           imagePullPolicy: Always
           volumeMounts:
             - name: kubernetes-example-pv
-              mountPath: /usr/src/data
+              mountPath: /usr/src/data/books
           ports: 
           - containerPort: 3000
-      securityContext:
-        fsGroup: 1000
       volumes: 
       - name: kubernetes-example-pv
         persistentVolumeClaim: 
           claimName: pv-volume
-      - name: env-variables
-        configMap:
-          name: kubernetes-example
