@@ -10,7 +10,7 @@ const { stringify } = require('querystring');
 
 const WORKDIR = env.PWD;
 const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
-const version = env.VERSION ? env.VERSION : "1.0";
+const version = "1.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
 
 // fn to create express server

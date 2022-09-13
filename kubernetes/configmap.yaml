@@ -3,6 +3,4 @@ kind: ConfigMap
 metadata:
   name: kubernetes-example
 data:
-  # property-like keys
-  version: "1.1"
   pv_path: "/usr/src/data"

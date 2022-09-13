@@ -25,9 +25,9 @@ Now we are going to push the image to DockerHub:
     ```
 2. Create the image tag: 
     ```bash 
-    docker tag learningkubernetes.example.io:1.0 username/learningkubernetes.example.io:1.0
+    docker tag learningkubernetes.example.io:1.0 {username}/learningkubernetes.example.io:1.0
     ```
 3. Push the image: 
     ```
-    docker push username/learningkubernetes.example.io:1.0
+    docker push {username}/learningkubernetes.example.io:1.0
     ```
