@@ -7,11 +7,20 @@ const fs = require('fs');
 const { env } = require('process');
 const os  = require('os');
 const { stringify } = require('querystring');
+const mysql = require('mysql');
 
 const WORKDIR = env.PWD;
 const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
 const version = "1.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
+
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    port     : '3306',
+    user     : 'root',
+    password : 'root',
+    database : 'books'
+});
 
 // fn to create express server
 const create = async () => {

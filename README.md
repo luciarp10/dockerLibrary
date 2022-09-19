@@ -31,3 +31,32 @@ Now we are going to push the image to DockerHub:
     ```
     docker push {username}/learningkubernetes.example.io:1.0
     ```
+
+In this version of the repo, we are going to add a Mysql Database. 
+1. Install dependencies:
+    ```
+    npm install mysql
+    ```
+
+2. Create the Docker Image: 
+    ```
+    docker build -t learningkubernetes.example.bd:1.0 $(pwd)/docker-bd
+    ```
+3. Login into Docker Hub: 
+    ```
+    docker login
+    ```
+
+4. Tag the Docker Image: 
+    ```
+    docker tag learningkubernetes.example.bd.1.0 {username}/learningkubernetes.example.io:1.0
+    ```
+
+5. Push the image to Docker Hub: 
+    ```
+    docker push {username}/learningkubernetes.example.bd:1.0
+    ```
+
+
+
+
