@@ -47,43 +47,41 @@ const create = async () => {
         var month = datems.getMonth()+1;
         var year = datems.getFullYear();
         
-        var date = day +"/"+month+"/"+year
+        var date = year+"-"+month+"-"+day
         var book_path = booksDir+req.body.title+".txt";
 
-        utils.createDirIfNotExist(booksDir, fs);
+        query = 'INSERT INTO books VALUES (\''+req.body.title+'\', \''+req.body.content+'\', \''+date+'\')';
+        console.log(query)
 
-        var stream = fs.createWriteStream(book_path);
+        connection.query(query, function(err, rows, fields) {
+            if(err){
+                console.log("Error al hacer la consulta. "+ err.stack);
+                return;
+            }
 
-        stream.once('open', (fd) => {
-            stream.write('{\n"Title": "' + req.body.title + '",\n');
-            stream.write('"Date":"' + date + '",\n');
-            stream.write('"Content": "' + req.body.content +'"\n}')
-            stream.end();
+            console.log("Inserción ejecutada con éxito:");
+            res.json({
+                title: req.body.title,
+                content: req.body.content,
+                date: date
+            })
         });
-
-        res.json({
-            title: req.body.title,
-            date: date
-        })
-        res.end();
     })
 
     app.get("/books", (req, res) => {
         var books = []
         utils.createDirIfNotExist(booksDir, fs);
-        fs.readdir(booksDir, function(err, files){
-            if (err){
-                res.status = 404;
+
+        query = 'SELECT * from books';
+
+        connection.query(query, function(err, rows, fields) {
+            if(err){
+                console.log("Error al hacer la consulta. "+ err.stack);
+                return;
             }
-            
-            console.log(files);
-            files.forEach(function(file){
-                
-                books.push({fileName:file});
-            })
-            res.json(books)
-            res.end();
-        })  
+            res.json(rows);
+            console.log("Consulta ejecutada con éxito:", rows);
+        });
     })
 
     // Catch errors
@@ -94,6 +92,7 @@ const create = async () => {
 
     return app;
 };
+
 
 module.exports = {
     create
