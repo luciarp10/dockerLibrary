@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
         - name: kubernetes-example
-          image: nmolnar/learningkubernetes.example.io:1.0
+          image: luciarp10/learningkubernetes.example.io:3.1
           env:
             - name: PV
               valueFrom:

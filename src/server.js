@@ -15,7 +15,7 @@ const version = "1.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
 
 var connection = mysql.createConnection({
-    host     : 'localhost',
+    host     : '172.17.0.5',
     port     : '3306',
     user     : 'root',
     password : 'root',
