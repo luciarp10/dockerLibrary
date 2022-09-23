@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image: 
+  repository: luciarp10/learningkubernetes.example.io
+  tag: "3.3"
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 3000
+
+livenessProbe: 
+  httpGet: 
+    path: /
+    port: 3000
+
+service: 
+  type: NodePort
+  internalPort: 3000
+
+env: 
+  - name: HOST_BD
+    value: 172.17.0.3
+
+

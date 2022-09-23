@@ -13,9 +13,10 @@ const WORKDIR = env.PWD;
 const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
 const version = "1.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
+const hostbd = env.HOST_BD; 
 
 var connection = mysql.createConnection({
-    host     : '172.17.0.5',
+    host     : hostbd,
     port     : '3306',
     user     : 'root',
     password : 'root',
