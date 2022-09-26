@@ -1,0 +1,21 @@
+---
+# Source: nodejs/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-name-nodejs
+  labels:
+    app: nodejs
+    chart: nodejs-0.1.1
+    release: release-name
+    heritage: Helm
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: release-name-nodejs
+  selector:
+    app: nodejs
+    release: release-name

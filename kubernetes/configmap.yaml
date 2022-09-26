@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: kubernetes-example
-data:
-  pv_path: "/usr/src/data"

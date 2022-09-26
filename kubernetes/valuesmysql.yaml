@@ -1,6 +1,5 @@
 auth:
-  rootPassword: root
   database: books
 image: 
-  repository: luciarp10/learningkubernetes.example.bd
+  repository: nmolnar/learningkubernetes.example.bd
   tag: "1.0"
