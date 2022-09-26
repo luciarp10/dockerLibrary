@@ -14,13 +14,17 @@ const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/
 const version = "1.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
 const hostbd = env.HOST_BD; 
+const portbd = env.PORT_BD;
+const userbd = env.USER_BD; 
+const passwdbd = env.PASS_BD;
+const dbname = env.NAME_BD; 
 
 var connection = mysql.createConnection({
     host     : hostbd,
-    port     : '3306',
-    user     : 'root',
-    password : 'root',
-    database : 'books'
+    port     : portbd, //3306
+    user     : userbd, //root
+    password : passwdbd, //root
+    database : namebd //books
 });
 
 // fn to create express server

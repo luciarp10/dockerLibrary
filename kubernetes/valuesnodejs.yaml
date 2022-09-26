@@ -2,7 +2,7 @@ replicaCount: 2
 
 image: 
   repository: luciarp10/learningkubernetes.example.io
-  tag: "3.3"
+  tag: "3.0"
 
 readinessProbe:
   httpGet:
