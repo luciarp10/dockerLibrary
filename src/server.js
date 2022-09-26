@@ -11,7 +11,7 @@ const mysql = require('mysql');
 
 const WORKDIR = env.PWD;
 const booksDir = env.PV ? env.PV + "/books/" : WORKDIR + "/books/"; // /usr/src/data
-const version = "1.0";
+const version = "3.0";
 const secret = env.NODE_USERNAME + ":" + env.NODE_PASSWORD;
 const hostbd = env.HOST_BD; 
 const portbd = env.PORT_BD;
@@ -41,7 +41,7 @@ const create = async () => {
     // root route - serve static file
     app.get('/', (req, res) => {
         res.json({nodeName: os.hostname()
-            , version: version, credentials: secret});
+            , version: version});
         res.end();  
     });
 
