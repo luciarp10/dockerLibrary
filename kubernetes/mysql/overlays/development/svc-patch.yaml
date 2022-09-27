@@ -4,5 +4,6 @@ metadata:
   name: release-name-mysql
 spec:
   ports:
+    - $patch: replace
     - name: mysql
       port: 3308

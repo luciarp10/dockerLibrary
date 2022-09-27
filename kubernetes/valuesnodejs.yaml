@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image: 
-  repository: juancarlosurjc/learningkubernetes.example.io
-  tag: "3.0"
+  repository: luciarp10/learningkubernetes.example.io
+  tag: "3.4"
 
 readinessProbe:
   httpGet:
@@ -19,5 +19,14 @@ service:
   internalPort: 3000
 
 env: 
-  - name: HOST_BD
-    value: 172.17.0.3
+- name: PORT_BD
+  value: "3308"
+- name: HOST_BD
+  value: "172.17.0.3"
+- name: USER_BD
+  value: "root"
+- name: PASS_BD
+  value: "root"
+- name: NAME_BD
+  value: "books"
+     
