@@ -1,15 +1,12 @@
 const express = require('express');
-const body_parser = require('body-parser');
 const favicon = require('serve-favicon');
 const path = require('path');
 const utils = require('./utils');
 const fs = require('fs');
 const { env } = require('process');
 const os  = require('os');
-const { stringify } = require('querystring');
 const mysql = require('mysql');
 
-const WORKDIR = env.PWD;
 const version = "3.0";
 const hostbd = env.HOST_BD; 
 const portbd = env.PORT_BD;
@@ -22,7 +19,7 @@ var connection = mysql.createConnection({
     port     : portbd, //3306
     user     : userbd, //root
     password : passwdbd, //root
-    database : namebd //books
+    database : dbname //books
 });
 
 // fn to create express server
@@ -51,7 +48,6 @@ const create = async () => {
         var year = datems.getFullYear();
         
         var date = year+"-"+month+"-"+day
-        var book_path = booksDir+req.body.title+".txt";
 
         query = 'INSERT INTO books VALUES (\''+req.body.title+'\', \''+req.body.content+'\', \''+date+'\')';
         console.log(query)
@@ -72,7 +68,6 @@ const create = async () => {
     })
 
     app.get("/books", (req, res) => {
-        var books = []
         utils.createDirIfNotExist(booksDir, fs);
 
         query = 'SELECT * from books';

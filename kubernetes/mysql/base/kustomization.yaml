@@ -4,4 +4,7 @@ kind: Kustomization
 resources:
   - primary/configmap.yaml
   - primary/statefulset.yaml
+  - primary/svc-headless.yaml
+  - primary/svc.yaml
+  - secrets.yaml
   - serviceaccount.yaml

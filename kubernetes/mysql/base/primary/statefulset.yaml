@@ -1,5 +1,3 @@
----
-# Source: mysql/templates/primary/statefulset.yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -56,7 +54,7 @@ spec:
       initContainers:
       containers:
         - name: mysql
-          image: docker.io/nmolnar/learningkubernetes.example.bd:1.0
+          image: docker.io/juancarlosurjc/learningkubernetes.example.bd:1.0
           imagePullPolicy: "IfNotPresent"
           securityContext:
             runAsNonRoot: true

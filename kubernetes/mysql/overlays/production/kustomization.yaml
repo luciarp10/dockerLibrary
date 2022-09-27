@@ -4,7 +4,6 @@ kind: Kustomization
 bases:
   - ../../base
 
-patches:
-  - secrets.yaml
-  - svc.yaml
-  - svc-headless.yaml
+patchesStrategicMerge:
+  - secrets-patch.yaml
+  #- svc-patch.yaml
