@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image: 
-  repository: luciarp10/learningkubernetes.example.io
-  tag: "3.4"
+  repository: juancarlosurjc/learningkubernetes.example.io
+  tag: "3.0"
 
 readinessProbe:
   httpGet:
@@ -15,18 +15,17 @@ livenessProbe:
     port: 3000
 
 service: 
-  type: NodePort
+  type: ClusterIP
   internalPort: 3000
 
 env: 
-- name: PORT_BD
-  value: "3308"
 - name: HOST_BD
   value: "172.17.0.3"
+- name: PORT_BD
+  value: "3308"
 - name: USER_BD
   value: "root"
 - name: PASS_BD
   value: "root"
 - name: NAME_BD
   value: "books"
-     

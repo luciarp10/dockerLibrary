@@ -23,11 +23,19 @@ spec:
     spec:
       containers:
         - name: nodejs
-          image: "nmolnar/learningkubernetes.example.io:3.0"
+          image: "juancarlosurjc/learningkubernetes.example.io:3.0"
           imagePullPolicy: "IfNotPresent"
           env:
             - name: HOST_BD
               value: 172.17.0.3
+            - name: PORT_BD
+              value: "3308"
+            - name: USER_BD
+              value: root
+            - name: PASS_BD
+              value: root
+            - name: NAME_BD
+              value: books
           envFrom:
             []
           readinessProbe:

@@ -2,24 +2,23 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const path = require('path');
 const utils = require('./utils');
-const fs = require('fs');
 const { env } = require('process');
 const os  = require('os');
 const mysql = require('mysql');
 
-const version = "3.0";
-const hostbd = env.HOST_BD; 
-const portbd = env.PORT_BD;
-const userbd = env.USER_BD; 
-const passwdbd = env.PASS_BD;
-const dbname = env.NAME_BD; 
+const version = '3.0';
+const hostbd = '172.17.0.3';//env.HOST_BD; 
+const portbd = '3308';//env.PORT_BD;
+const userbd = 'root';//env.USER_BD; 
+const passwdbd = 'root';//env.PASS_BD;
+const namedb = 'books';//env.NAME_BD; 
 
 var connection = mysql.createConnection({
     host     : hostbd,
-    port     : portbd, //3306
-    user     : userbd, //root
-    password : passwdbd, //root
-    database : dbname //books
+    port     : portbd,
+    user     : userbd,
+    password : passwdbd,
+    database : namedb
 });
 
 // fn to create express server
@@ -37,7 +36,7 @@ const create = async () => {
     app.get('/', (req, res) => {
         res.json({nodeName: os.hostname()
             , version: version});
-        res.end();  
+        res.end();
     });
 
     app.post("/books", (req,res) => {
@@ -50,7 +49,6 @@ const create = async () => {
         var date = year+"-"+month+"-"+day
 
         query = 'INSERT INTO books VALUES (\''+req.body.title+'\', \''+req.body.content+'\', \''+date+'\')';
-        console.log(query)
 
         connection.query(query, function(err, rows, fields) {
             if(err){
@@ -64,12 +62,11 @@ const create = async () => {
                 content: req.body.content,
                 date: date
             })
+            res.end();
         });
     })
 
     app.get("/books", (req, res) => {
-        utils.createDirIfNotExist(booksDir, fs);
-
         query = 'SELECT * from books';
 
         connection.query(query, function(err, rows, fields) {
@@ -78,6 +75,7 @@ const create = async () => {
                 return;
             }
             res.json(rows);
+            res.end();
             console.log("Consulta ejecutada con éxito:", rows);
         });
     })

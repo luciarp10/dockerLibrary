@@ -3,6 +3,5 @@ kind: Kustomization
 bases:
   - ../../base
 patchesStrategicMerge:
-  - secrets-patch.yaml
-  - svc-patch.yaml
-  - svc-headless-patch.yaml
+  - service-patch.yaml
+  - deployment-patch.yaml
