@@ -7,11 +7,11 @@ const os  = require('os');
 const mysql = require('mysql');
 
 const version = '3.0';
-const hostbd = '172.17.0.3';//env.HOST_BD; 
-const portbd = '3308';//env.PORT_BD;
-const userbd = 'root';//env.USER_BD; 
-const passwdbd = 'root';//env.PASS_BD;
-const namedb = 'books';//env.NAME_BD; 
+const hostbd = env.HOST_BD; 
+const portbd = env.PORT_BD;
+const userbd = env.USER_BD; 
+const passwdbd = env.PASS_BD;
+const namedb = env.NAME_BD; 
 
 var connection = mysql.createConnection({
     host     : hostbd,
