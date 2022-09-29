@@ -72,7 +72,7 @@ spec:
           envFrom:
           ports:
             - name: mysql
-              containerPort: 3306
+              containerPort: 3308
           livenessProbe:
             failureThreshold: 3
             initialDelaySeconds: 5
