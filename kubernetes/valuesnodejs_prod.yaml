@@ -20,7 +20,7 @@ service:
 
 env: 
 - name: HOST_BD
-  value: "mysqlprod-headless"
+  value: "mysql-prod-headless"
 - name: PORT_BD
   value: "3306"
 - name: USER_BD
