@@ -4,7 +4,7 @@ const path = require('path');
 const utils = require('./utils');
 const { env } = require('process');
 const os  = require('os');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const version = '3.0';
 const hostbd = env.HOST_BD; 

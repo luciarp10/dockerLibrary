@@ -2,7 +2,7 @@ replicaCount: 2
 
 image: 
   repository: luciarp10/learningkubernetes.example.io
-  tag: "3.5"
+  tag: "3.6"
 
 readinessProbe:
   httpGet:
@@ -15,17 +15,17 @@ livenessProbe:
     port: 3000
 
 service: 
-  type: ClusterIP
+  type: NodePort
   internalPort: 3000
 
 env: 
 - name: HOST_BD
-  value: "mysql"
+  value: "mysqlprod-headless"
 - name: PORT_BD
-  value: "3308"
+  value: "3306"
 - name: USER_BD
-  value: "root"
+  value: "admin"
 - name: PASS_BD
-  value: "root"
+  value: "prod"
 - name: NAME_BD
   value: "books"

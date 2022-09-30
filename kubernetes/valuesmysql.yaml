@@ -1,5 +1,0 @@
-auth:
-  database: books
-image: 
-  repository: juancarlosurjc/learningkubernetes.example.bd
-  tag: "1.0"

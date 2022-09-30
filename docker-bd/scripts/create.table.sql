@@ -6,5 +6,4 @@ CREATE TABLE `books` (
   UNIQUE KEY `title_unique` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'root';
-flush privileges; 
+
