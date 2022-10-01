@@ -15,7 +15,7 @@ livenessProbe:
     port: 3000
 
 service: 
-  type: NodePort
+  type: ClusterIP
   internalPort: 3000
 
 env: 

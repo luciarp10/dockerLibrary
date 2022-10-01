@@ -11,14 +11,14 @@ const hostbd = env.HOST_BD;
 const portbd = env.PORT_BD;
 const userbd = env.USER_BD; 
 const passwdbd = env.PASS_BD;
-const namedb = env.NAME_BD; 
+const namebd = env.NAME_BD; 
 
 var connection = mysql.createConnection({
     host     : hostbd,
     port     : portbd,
     user     : userbd,
     password : passwdbd,
-    database : namedb
+    database : namebd
 });
 
 // fn to create express server

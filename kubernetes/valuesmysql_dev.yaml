@@ -1,8 +1,8 @@
 auth:
- rootPassword: root
- username: admin
- password: devel
- database: books
+  rootPassword: root
+  username: admin
+  password: devel
+  database: books
 image:
- repository: luciarp10/learningkubernetes.example.bd
- tag: "1.1"
+  repository: luciarp10/learningkubernetes.example.bd
+  tag: "1.1"
